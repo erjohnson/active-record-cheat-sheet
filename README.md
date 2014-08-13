@@ -1,46 +1,44 @@
-:gem: Active Record Cheatsheet :gem:
-======
-&nbsp;
-### Contents
+# Active Record Cheatsheet
 
-* [About](#about)
-* [Install](#install)
-* [Connecting](#connect-to-a-database)
+This aims to be a quick reference for [Active Record](http://guides.rubyonrails.org/active_record_querying.html) as well as related [rake](https://github.com/jimweirich/rake) & database tasks.
 
-&nbsp;
-### About
+## Contents
 
-This repo intends to be a quick-reference for [Active Record](http://guides.rubyonrails.org/active_record_querying.html) and related tasks. It's still a work-in-progress.
+* [Installation](#installation)
+* [Connecting to a database](#connecting-to-a-database)
 
-&nbsp;
-### Install
 
-#### via terminal / cmd
-```
-$ gem install activerecord
+
+## Installation
+
+Add it to your Gemfile:
+
+```ruby
+gem 'activerecord'
 ```
 
+In terminal/cmd, navigate to your project directory and run this command:
 
-#### via GEMFILE
 ```
-gem ‘activerecord’
+bundle install
 ```
 
+Then `require` it:
 
-#### then require
-```
+```ruby
 require 'active_record'
 ```
 
-&nbsp;
-### Connect to a database
-```
+
+## Connecting to a database
+
+```ruby
 ActiveRecord::Base.establish_connection(YAML::load(File.open('./db/config.yml'))["db_name"])
 ```
 
-&nbsp;
 ### Clearing the test database between specs
-```
+
+```ruby
 RSpec.configure do |config|
   config.after(:each) do
     Task.all.each { |task| task.destroy }
