@@ -1,6 +1,12 @@
 :gem: Active Record Cheatsheet :gem:
 ======
 
+### Contents
+
+* [About](#about)
+* [Install](#install)
+* [Connecting](#connect-to-a-database)
+
 
 ### About
 
